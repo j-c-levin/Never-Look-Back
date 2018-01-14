@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { KeyboardService } from "./../../services/keyboard-service/keyboard.service";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { LocalStorageService } from "angular-2-local-storage/dist/local-storage.service";
 import { ReplaySubject } from "rxjs/Rx";
 
@@ -8,23 +9,45 @@ import { ReplaySubject } from "rxjs/Rx";
   styleUrls: ["./writing-area.component.css"]
 })
 export class WritingAreaComponent implements OnInit {
-  writtenText: any;
-  localStorageObserver: ReplaySubject<any> = new ReplaySubject();
+  public writtenText: any = "";
 
-  constructor(private localStorage: LocalStorageService) {}
+  constructor(
+    private localStorage: LocalStorageService,
+    private keyboardService: KeyboardService
+  ) {}
 
   ngOnInit() {
+    this.subscribeToKeyEvents();
+    this.setupStoringText();
+    this.loadStoredText();
+  }
+
+  setupStoringText() {
     // Periodically save text to file, after every 1 second pause in typing
-    this.localStorageObserver.debounceTime(1000).subscribe(data => {
-      this.localStorage.set("file", data);
-    });
+    this.keyboardService
+      .getKeyboardSubject()
+      .debounceTime(1000)
+      .subscribe(() => {
+        this.localStorage.set("file", this.writtenText);
+      });
+  }
+
+  loadStoredText() {
     // If text is in the local storage, load it in
-    if (this.localStorage.get('file') !== null) {
-      this.writtenText = this.localStorage.get('file');
+    if (this.localStorage.get("file") !== null) {
+      // this.writtenText = this.localStorage.get("file");
     }
   }
 
-  onTextInput() {
-    this.localStorageObserver.next(this.writtenText);
+  private subscribeToKeyEvents() {
+    this.keyboardService.getKeyboardSubject().subscribe(event => {
+      this.handleKeyEvents(event);
+    });
+  }
+
+  private handleKeyEvents(event: KeyboardEvent) {
+    if (this.keyboardService.generalInvalidCharacters().includes(event.key) === false) {
+      this.writtenText += event.key;
+    }
   }
 }

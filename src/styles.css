@@ -3,6 +3,10 @@ html {
   font-size: 10px;
 }
 
+body {
+  margin: 0;
+}
+
 body * {
   margin: 0;
   font-family: cursive, sans-serif;
