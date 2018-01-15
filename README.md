@@ -10,7 +10,7 @@ You can only see the previous letter that you typed until you hit your wordcount
 
 1) ~~A blank page with a textarea, has a nice font, and is saved to your browser's local storage.~~
 
-2) An empty overlay that shows you only the last letter you typed until you hit a wordcount and then it animates away to reveal your text.
+2) ~~An empty overlay that shows you only the last letter you typed until you hit a wordcount and then it animates away to reveal your text.~~
 
 3) A wordcount goal setter that lets you determine how close you are to hitting your goal, you also cannot backspace to delete what you've written.
 

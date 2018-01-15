@@ -15,3 +15,11 @@ section p {
   color: white;
   max-width: 50%;
 }
+
+.isVisible {
+  visibility: visible; 
+}
+
+.isNotVisible {
+  visibility: hidden;
+}

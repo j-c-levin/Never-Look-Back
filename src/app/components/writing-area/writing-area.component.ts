@@ -46,7 +46,7 @@ export class WritingAreaComponent implements OnInit {
   }
 
   private handleKeyEvents(event: KeyboardEvent) {
-    if (this.keyboardService.generalInvalidCharacters().includes(event.key) === false) {
+    if (this.keyboardService.isCharacterKey(event.key)) {
       this.writtenText += event.key;
     }
   }

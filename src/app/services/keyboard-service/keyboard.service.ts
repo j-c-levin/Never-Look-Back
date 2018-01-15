@@ -17,7 +17,7 @@ export class KeyboardService {
     return this.keyboardSubject;
   }
 
-  public generalInvalidCharacters(): [string] {
+  public isCharacterKey(keyCode: string): boolean {
     return [
       "Backspace",
       "Control",
@@ -42,6 +42,6 @@ export class KeyboardService {
       "F10",
       "F11",
       "F12"
-    ];
+    ].includes(keyCode) === false;
   }
 }

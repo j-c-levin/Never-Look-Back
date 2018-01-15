@@ -1,3 +1,4 @@
+import { WordcountGoalService } from "./../../services/wordcount-goal/wordcount-goal.service";
 import { KeyboardService } from "./../../services/keyboard-service/keyboard.service";
 import { Component, OnInit } from "@angular/core";
 
@@ -7,9 +8,13 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./wordcount.component.css"]
 })
 export class WordcountComponent implements OnInit {
-  private wordcount = 0;
+  public wordcount = 0;
+  private newWordFlag = false;
 
-  constructor(private keyboardService: KeyboardService) {}
+  constructor(
+    private keyboardService: KeyboardService,
+    private wordcountGoalService: WordcountGoalService
+  ) {}
 
   ngOnInit() {
     this.subscribeToKeyEvents();
@@ -17,9 +22,20 @@ export class WordcountComponent implements OnInit {
 
   private subscribeToKeyEvents() {
     this.keyboardService.getKeyboardSubject().subscribe(event => {
-      if (event.key === " ") {
-        this.wordcount += 1;
+      if (this.keyboardService.isCharacterKey(event.key)) {
+        this.handleWordcount(event);
       }
     });
+  }
+
+  private handleWordcount(event: KeyboardEvent) {
+    // A new word is a space that has come after at least one non-space character
+    if (event.key === " " && this.newWordFlag) {
+      this.wordcount += 1;
+      this.wordcountGoalService.setWordcount(this.wordcount);
+      this.newWordFlag = false;
+    } else if (event.key !== " ") {
+      this.newWordFlag = true;
+    }
   }
 }
