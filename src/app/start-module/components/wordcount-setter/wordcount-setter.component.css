@@ -1,0 +1,29 @@
+section {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+section #goal {
+  font-size: 10rem;
+  color: white;
+  max-width: 50%;
+  word-wrap: break-word;
+}
+
+#instructions {
+  margin-top: 10rem;
+  font-size: 5rem;
+  color: white;
+  text-align: center;
+}
+
+.isVisible {
+  visibility: visible;
+}
+
+.isNotVisible {
+  visibility: hidden;
+}
