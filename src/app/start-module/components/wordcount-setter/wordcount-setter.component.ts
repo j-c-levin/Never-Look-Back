@@ -7,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
   host: { "(window:keydown)": "onKeypress($event)" }
 })
 export class WordcountSetterComponent implements OnInit {
-  public wordcountGoal: string = "";
+  public wordcountGoal: string = "500";
 
   constructor() {}
 
@@ -15,11 +15,32 @@ export class WordcountSetterComponent implements OnInit {
 
   onKeypress(event: KeyboardEvent) {
     const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-    if (numbers.includes(event.key)){
-      this.wordcountGoal += event.key;
+    if (numbers.includes(event.key)) {
+      this.wordcountGoal = this.addNumberToGoal(event.key, this.wordcountGoal);
     }
     if (event.key === "Backspace") {
-      this.wordcountGoal = this.wordcountGoal.slice(0, this.wordcountGoal.length - 1);
+      this.wordcountGoal = this.subtractNumberFromGoal(this.wordcountGoal);
     }
+    if (event.key === "Enter") {
+      // Send value to service
+      // Remove main text from screen
+      // Display instructions of 'Write away, and until you're done, never look back'
+    }
+  }
+
+  addNumberToGoal(key: string, currentValue: string): string {
+    if (currentValue === "0") {
+      currentValue = "";
+    }
+    currentValue += key;
+    return currentValue;
+  }
+
+  subtractNumberFromGoal(currentValue: string): string {
+    currentValue = currentValue.slice(0, currentValue.length - 1);
+    if (currentValue.length === 0) {
+      currentValue = "0";
+    }
+    return currentValue;
   }
 }
