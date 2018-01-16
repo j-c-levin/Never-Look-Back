@@ -13,8 +13,8 @@ import { WritingModule } from "./writing/writing.module";
   ],
   imports: [
     BrowserModule,
-    WritingModule,
     StartModule,
+    WritingModule,
     AppRoutingModule
   ],
   providers: [],
