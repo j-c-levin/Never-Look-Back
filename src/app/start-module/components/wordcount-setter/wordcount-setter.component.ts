@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { WordcountGoalService } from "../../../services/wordcount-goal/wordcount-goal.service";
 
 @Component({
   selector: "app-wordcount-setter",
@@ -9,7 +10,7 @@ import { Component, OnInit } from "@angular/core";
 export class WordcountSetterComponent implements OnInit {
   public wordcountGoal: string = "500";
 
-  constructor() {}
+  constructor(private wordcountGoalService: WordcountGoalService) {}
 
   ngOnInit() {}
 
@@ -23,6 +24,7 @@ export class WordcountSetterComponent implements OnInit {
     }
     if (event.key === "Enter") {
       // Send value to service
+      this.wordcountGoalService.setWordcountGoal(Number(this.wordcountGoal));
       // Remove main text from screen
       // Display instructions of 'Write away, and until you're done, never look back'
     }

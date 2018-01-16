@@ -1,4 +1,4 @@
-import { KeyboardService } from "./../../services/keyboard-service/keyboard.service";
+import { KeyboardService } from "../../../services/keyboard-service/keyboard.service";
 import { Component, OnInit } from "@angular/core";
 
 @Component({

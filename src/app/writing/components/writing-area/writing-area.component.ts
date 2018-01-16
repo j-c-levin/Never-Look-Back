@@ -1,4 +1,4 @@
-import { KeyboardService } from "./../../services/keyboard-service/keyboard.service";
+import { KeyboardService } from "../../../services/keyboard-service/keyboard.service";
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { LocalStorageService } from "angular-2-local-storage/dist/local-storage.service";
 import { ReplaySubject } from "rxjs/Rx";
