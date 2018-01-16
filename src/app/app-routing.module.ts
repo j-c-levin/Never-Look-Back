@@ -12,11 +12,11 @@ const routes: Routes = [
   },
   {
     path: "start",
-    component: StartComponent
+    loadChildren: 'app/start-module/start.module#StartModule'
   },
   {
     path: "writing",
-    component: WritingComponent
+    loadChildren: 'app/writing/writing.module#WritingModule'
   }
 ];
 
