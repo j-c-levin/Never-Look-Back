@@ -13,9 +13,9 @@ import { WritingModule } from "./writing/writing.module";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     WritingModule,
-    StartModule
+    StartModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
