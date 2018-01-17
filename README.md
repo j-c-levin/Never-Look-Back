@@ -16,6 +16,10 @@ You can only see the previous letter that you typed until you hit your wordcount
 
 4) CSS animations
 
+5) Mobile friendly (open keyboard etc.)
+
+6) Better copying/exporting of work
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
 ## Development server
