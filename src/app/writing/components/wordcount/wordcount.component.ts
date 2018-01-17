@@ -1,6 +1,6 @@
-import { WordcountGoalService } from "../../../services/wordcount-goal/wordcount-goal.service";
-import { KeyboardService } from "../../../services/keyboard-service/keyboard.service";
 import { Component, OnInit } from "@angular/core";
+import { KeyboardService } from "../../../shared/services/keyboard-service/keyboard.service";
+import { WordcountGoalService } from "../../../shared/services/wordcount-goal/wordcount-goal.service";
 
 @Component({
   selector: "app-wordcount",

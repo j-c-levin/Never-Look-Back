@@ -1,3 +1,6 @@
-<p class="instructions">What is your writing goal?</p>
-<p id="goal" class="instructions">{{wordcountGoal}}</p>
-<p class="instructions">words</p>
+<p class="instructions" *ngIf="readyToWrite === false">What is your writing goal?</p>
+<p id="goal" class="instructions" *ngIf="readyToWrite === false">{{wordcountGoal}}</p>
+<p class="instructions" *ngIf="readyToWrite === false">words</p>
+<p class="instructions" *ngIf="readyToWrite">Write away,</p>
+<p class="instructions" *ngIf="readyToWrite">and until you're done,</p>
+<p class="instructions" *ngIf="readyToWrite">never look back</p>

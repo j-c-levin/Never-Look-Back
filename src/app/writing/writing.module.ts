@@ -4,13 +4,12 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { WritingRoutingModule } from "./writing-routing.module";
-import { KeyboardService } from "../services/keyboard-service/keyboard.service";
-import { WordcountGoalService } from "../services/wordcount-goal/wordcount-goal.service";
 import { WritingComponent } from "./writing.component";
 import { FormsModule } from "@angular/forms";
 import { KeyboardCaptureComponent } from "./components/keyboard-capture/keyboard-capture.component";
 import { TypingOverlayComponent } from "./components/typing-overlay/typing-overlay.component";
 import { WordcountComponent } from "./components/wordcount/wordcount.component";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -29,6 +28,6 @@ import { WordcountComponent } from "./components/wordcount/wordcount.component";
     WordcountComponent,
     WritingAreaComponent
   ],
-  providers: [KeyboardService, WordcountGoalService]
+  providers: []
 })
 export class WritingModule {}

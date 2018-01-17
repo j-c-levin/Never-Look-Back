@@ -12,7 +12,7 @@ You can only see the previous letter that you typed until you hit your wordcount
 
 2) ~~An empty overlay that shows you only the last letter you typed until you hit a wordcount and then it animates away to reveal your text.~~
 
-3) A wordcount goal setter that lets you determine how close you are to hitting your goal, you also cannot backspace to delete what you've written.
+3) ~~A wordcount goal setter that lets you determine how close you are to hitting your goal, you also cannot backspace to delete what you've written.~~
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 

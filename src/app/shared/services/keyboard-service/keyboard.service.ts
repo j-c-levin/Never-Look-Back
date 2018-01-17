@@ -41,7 +41,11 @@ export class KeyboardService {
       "F9",
       "F10",
       "F11",
-      "F12"
+      "F12",
+      "ArrowDown",
+      "ArrowUp",
+      "ArrowRight",
+      "ArrowLeft"
     ].includes(keyCode) === false;
   }
 }

@@ -1,8 +1,8 @@
-import { WordcountGoalService } from "../../../services/wordcount-goal/wordcount-goal.service";
-import { KeyboardService } from "../../../services/keyboard-service/keyboard.service";
 import { Component, OnInit, Input } from "@angular/core";
 import { Observable } from "rxjs/Rx";
 import { EventEmitter } from "events";
+import { KeyboardService } from "../../../shared/services/keyboard-service/keyboard.service";
+import { WordcountGoalService } from "../../../shared/services/wordcount-goal/wordcount-goal.service";
 
 @Component({
   selector: "app-typing-overlay",

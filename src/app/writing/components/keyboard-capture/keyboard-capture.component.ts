@@ -1,5 +1,5 @@
-import { KeyboardService } from "../../../services/keyboard-service/keyboard.service";
 import { Component, OnInit } from "@angular/core";
+import { KeyboardService } from "../../../shared/services/keyboard-service/keyboard.service";
 
 @Component({
   selector: "app-keyboard-capture",

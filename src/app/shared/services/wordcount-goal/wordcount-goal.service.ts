@@ -14,6 +14,7 @@ export class WordcountGoalService {
 
   public setWordcount(currentValue: number): void {
     this.currentWordcount.next(currentValue);
+    console.log('current:', currentValue, this.wordcountGoal);
     if (currentValue === this.wordcountGoal) {
       this.currentWordcount.complete();
     }
@@ -21,5 +22,6 @@ export class WordcountGoalService {
 
   public setWordcountGoal(goal: number): void {
     this.wordcountGoal = goal;
+    console.log('new goal', this.wordcountGoal);
   }
 }
