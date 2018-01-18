@@ -59,8 +59,12 @@ export class WordcountSetterComponent implements OnInit {
     // Remove main text from screen and display instructions
     this.readyToWrite = true;
     // Navigate to writing page after a delay
-    setTimeout(() => {
-      this.router.navigate(["writing"]);
-    }, 2000);
+    // setTimeout(() => {
+    //   this.router.navigate(["writing"]);
+    // }, 2000);
+  }
+
+  shouldFadeout() {
+    return this.readyToWrite ? 'fade-out' : '';
   }
 }
