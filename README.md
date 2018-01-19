@@ -1,13 +1,15 @@
 # NeverLookBack
 
-## Try live
+### A minimal, distraction-free writing editor.
+
+#### Try live
 neverlookback.netlify.com
 
 ## Concept
 
 Open-sourced interpretation of I Love Your Writings.
 
-You can only see the previous letter that you typed until you hit your wordcount.
+  You can only see the previous letter that you typed until you hit your wordcount.
 
 ### Feature milestones
 
