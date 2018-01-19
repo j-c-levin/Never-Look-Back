@@ -30,6 +30,7 @@ Future progress
 * Position the end-text box in a more central manner
 * Unit/integration tests
 * Travis/Circle CI
+* Being able to use the backspace after revealing the text should be a thing.  Until then, "it's a feature".
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 
