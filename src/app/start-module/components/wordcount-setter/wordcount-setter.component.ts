@@ -1,4 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  state,
+  style,
+  trigger,
+  transition,
+  animate,
+  keyframes
+} from "@angular/core";
 import { Router } from "@angular/router";
 import { WordcountGoalService } from "../../../shared/services/wordcount-goal/wordcount-goal.service";
 
@@ -6,11 +15,72 @@ import { WordcountGoalService } from "../../../shared/services/wordcount-goal/wo
   selector: "app-wordcount-setter",
   templateUrl: "./wordcount-setter.component.html",
   styleUrls: ["./wordcount-setter.component.css"],
-  host: { "(window:keydown)": "onKeypress($event)" }
+  host: { "(window:keydown)": "onKeypress($event)" },
+  animations: [
+    trigger("readyToWrite", [
+      state(
+        "fade-in",
+        style({
+          opacity: "1"
+        })
+      ),
+      state(
+        "fade-out",
+        style({
+          opacity: "0",
+          visibility: "hidden",
+          position: "absolute"
+        })
+      ),
+      state(
+        "off",
+        style({
+          opacity: "0"
+        })
+      ),
+      transition(
+        "* => fade-in",
+        animate(
+          "500ms ease-out",
+          keyframes([
+            style({
+              transform: "translateY(50px)",
+              opacity: "0",
+              offset: 0
+            }),
+            style({
+              transform: "translateY(0)",
+              opacity: "1",
+              offset: 1
+            })
+          ])
+        )
+      ),
+      transition(
+        "* => fade-out",
+        animate(
+          "500ms ease-out",
+          keyframes([
+            style({
+              transform: "translateY(0px)",
+              opacity: "1",
+              offset: 0
+            }),
+            style({
+              transform: "translateY(50px)",
+              opacity: "0",
+              offset: 1
+            })
+          ])
+        )
+      )
+    ])
+  ]
 })
 export class WordcountSetterComponent implements OnInit {
   public wordcountGoal: string = "500";
   public readyToWrite: boolean = false;
+  public animationState: string = "off";
 
   constructor(
     private wordcountGoalService: WordcountGoalService,
@@ -59,12 +129,15 @@ export class WordcountSetterComponent implements OnInit {
     // Remove main text from screen and display instructions
     this.readyToWrite = true;
     // Navigate to writing page after a delay
-    // setTimeout(() => {
-    //   this.router.navigate(["writing"]);
-    // }, 2000);
   }
 
-  shouldFadeout() {
-    return this.readyToWrite ? 'fade-out' : '';
+  triggerSecondaryAnimations(): void {
+    if (this.readyToWrite) {
+      this.animationState = "fade-in";
+      // Make this better by creating a second animation trigger
+      setTimeout(() => {
+        this.router.navigate(["writing"]);
+      }, 2500);
+    }
   }
 }

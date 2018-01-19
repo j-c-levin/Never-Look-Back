@@ -1,8 +1,11 @@
 # NeverLookBack
 
+## Try live
+neverlookback.netlify.com
+
 ## Concept
 
-Open-source I Love Your Writings.
+Open-sourced interpretation of I Love Your Writings.
 
 You can only see the previous letter that you typed until you hit your wordcount.
 
@@ -14,11 +17,17 @@ You can only see the previous letter that you typed until you hit your wordcount
 
 3) ~~A wordcount goal setter that lets you determine how close you are to hitting your goal, you also cannot backspace to delete what you've written.~~
 
-4) CSS animations
+4) ~~CSS animations~~
 
-5) Mobile friendly (open keyboard etc.)
+Future progress
 
-6) Better copying/exporting of work
+* Mobile friendly (open keyboard etc.)
+* Better copying/exporting of work
+* Add a second animation trigger to the wordcount-setter component to simplify the animation work
+* Choose a better global font
+* Position the end-text box in a more central manner
+* Unit/integration tests
+* Travis/Circle CI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
 

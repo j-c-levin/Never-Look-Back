@@ -1,6 +1,6 @@
-<p class="instructions" *ngIf="readyToWrite === false">What is your writing goal?</p>
-<p id="goal" class="instructions" *ngIf="readyToWrite === false">{{wordcountGoal}}</p>
-<p class="instructions" *ngIf="readyToWrite === false">words</p>
-<p class="instructions" *ngIf="readyToWrite">Write away,</p>
-<p class="instructions" *ngIf="readyToWrite">and until you're done,</p>
-<p class="instructions" *ngIf="readyToWrite">never look back</p>
+<p class="instructions" [@readyToWrite]="readyToWrite ? 'fade-out' : 'fade-in'" (@readyToWrite.done)="triggerSecondaryAnimations()">What is your writing goal?</p>
+<p id="goal" class="instructions" [@readyToWrite]="readyToWrite ? 'fade-out' : 'fade-in'">{{wordcountGoal}}</p>
+<p class="instructions" [@readyToWrite]="readyToWrite ? 'fade-out' : 'fade-in'">words</p>
+<p class="instructions" [@readyToWrite]="animationState">Write away,</p>
+<p class="instructions" [@readyToWrite]="animationState">and until you're done,</p>
+<p class="instructions" [@readyToWrite]="animationState">never look back</p>

@@ -11,6 +11,6 @@
   margin: 0 auto;
 }
 
-p:nth-child(1) {
+p:nth-child(1), p:nth-child(4) {
   margin-top: 7rem;
 }

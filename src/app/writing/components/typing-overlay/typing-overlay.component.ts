@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, trigger, style, state, transition, animate } from "@angular/core";
 import { Observable } from "rxjs/Rx";
 import { EventEmitter } from "events";
 import { KeyboardService } from "../../../shared/services/keyboard-service/keyboard.service";
@@ -7,7 +7,18 @@ import { WordcountGoalService } from "../../../shared/services/wordcount-goal/wo
 @Component({
   selector: "app-typing-overlay",
   templateUrl: "./typing-overlay.component.html",
-  styleUrls: ["./typing-overlay.component.css"]
+  styleUrls: ["./typing-overlay.component.css"],
+  animations: [
+    trigger('wordcount', [
+      state('fade-out', style({
+        opacity: '0'
+      })),
+      state('isVisible', style({
+        opacity: '1'
+      })),
+      transition('* => fade-out', animate('500ms ease-out'))
+    ])
+  ]
 })
 export class TypingOverlayComponent implements OnInit {
   public lastLetter = "";
@@ -33,7 +44,7 @@ export class TypingOverlayComponent implements OnInit {
 
   private subscribeToWordcountGoal() {
     this.wordcountGoalService.goalCompleted().subscribe(() => {
-      this.overlayVisible = "isNotVisible";
+      this.overlayVisible = "fade-out";
     });
   }
 }
